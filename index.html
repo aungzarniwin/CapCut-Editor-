@@ -12,37 +12,31 @@
 
     <!-- Header / Navbar -->
     <header class="bg-slate-800 border-b border-slate-700 p-4 sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <i class="fa-solid fa-sliders text-amber-500 text-2xl"></i>
                 <h1 class="text-xl font-bold bg-gradient-to-r from-amber-400 to-emerald-400 bg-clip-text text-transparent">
                     CapCut Precision Settings Studio
                 </h1>
             </div>
-            <span class="text-xs bg-slate-700 px-3 py-1 rounded-full text-slate-300">v4.0.0</span>
+            <span class="text-xs bg-slate-700 px-3 py-1 rounded-full text-slate-300">v5.0.0</span>
         </div>
     </header>
 
     <!-- Main Container -->
-    <main class="max-w-6xl mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 mt-4">
+    <main class="max-w-4xl mx-auto p-4 md:p-6 grid grid-cols-1 md:grid-cols-12 gap-6 mt-4">
 
         <!-- Left Column: Input Form -->
-        <section class="lg:col-span-5 bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl h-fit">
+        <section class="md:col-span-5 bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl h-fit">
             <h2 class="text-lg font-semibold mb-4 text-amber-400 flex items-center gap-2">
-                <i class="fa-solid fa-gear"></i> ပလက်ဖောင်းနှင့် အချက်အလက် ရွေးချယ်ပါ
+                <i class="fa-solid fa-gear"></i> ပလက်ဖောင်း ရွေးချယ်ပါ
             </h2>
 
             <form id="workflowForm" class="space-y-4">
                 <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-1">Video Source / Name</label>
-                    <input type="text" id="videoSource" placeholder="ဥပမာ - TikTok Video / Movie Clip" 
-                        class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" required>
-                </div>
-
-                <div>
                     <label class="block text-sm font-medium text-slate-300 mb-1">Target Platform (ပလက်ဖောင်း)</label>
                     <select id="platform" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
-                        <option value="tiktok">TikTok / Reels / Shorts (9:16)</option>
+                        <option value="tiktok">TikTok / Shorts / Reels (9:16)</option>
                         <option value="youtube">YouTube Long Video (16:9)</option>
                     </select>
                 </div>
@@ -56,12 +50,6 @@
                     </select>
                 </div>
 
-                <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-1">Key Points (အဓိက အချက်များ)</label>
-                    <textarea id="keyPoints" rows="3" placeholder="နိဒါန်း၊ အဓိကဇာတ်ကြောင်း၊ နိဂုံးချုပ်..." 
-                        class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" required></textarea>
-                </div>
-
                 <button type="submit" 
                     class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
                     <i class="fa-solid fa-wand-magic-sparkles"></i> ချိန်ညှိရန် Settings များ ထုတ်ယူမည်
@@ -70,13 +58,13 @@
         </section>
 
         <!-- Right Column: Generated Output -->
-        <section class="lg:col-span-7 space-y-6">
+        <section class="md:col-span-7 space-y-6">
             
             <!-- Output Container -->
             <div id="outputContainer" class="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl hidden">
                 <div class="flex flex-wrap justify-between items-center mb-4 pb-3 border-b border-slate-700 gap-2">
                     <h2 class="text-lg font-semibold text-emerald-400 flex items-center gap-2">
-                        <i class="fa-solid fa-sliders"></i> CapCut Precision Editing Settings
+                        <i class="fa-solid fa-sliders"></i> CapCut Precision Settings
                     </h2>
                     <div class="flex items-center gap-2">
                         <button onclick="copyToClipboard()" class="text-xs bg-slate-700 hover:bg-slate-600 text-slate-200 px-3 py-1.5 rounded-lg flex items-center gap-1 transition">
@@ -96,7 +84,7 @@
             <!-- Placeholder State -->
             <div id="placeholderState" class="bg-slate-800/50 border border-dashed border-slate-700 p-12 rounded-xl text-center">
                 <i class="fa-solid fa-sliders text-4xl text-slate-600 mb-3 block"></i>
-                <p class="text-slate-400">ဘယ်ဘက်တွင် ပလက်ဖောင်းနှင့် အချက်အလက်များ ရွေးချယ်၍ CapCut တိကျသော Settings များကို ထုတ်ယူပါ။</p>
+                <p class="text-slate-400">ဘယ်ဘက်တွင် ပလက်ဖောင်း ရွေးချယ်၍ CapCut တိကျသော Settings များကို ထုတ်ယူပါ။</p>
             </div>
 
         </section>
@@ -107,16 +95,11 @@
         document.getElementById('workflowForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            const source = document.getElementById('videoSource').value;
             const platformVal = document.getElementById('platform').value;
             const style = document.getElementById('style').value;
-            const rawPoints = document.getElementById('keyPoints').value;
             
-            const pointsArray = rawPoints.split('\n').filter(p => p.trim() !== '');
-
             let platformName = platformVal === 'tiktok' ? 'TikTok / Shorts / Reels (9:16)' : 'YouTube Long Video (16:9)';
 
-            // Specific adjustment values based on platform choice
             let settingsHTML = '';
             if (platformVal === 'tiktok') {
                 settingsHTML = `
@@ -147,7 +130,7 @@
             const outputHTML = `
                 <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
                     <h3 class="font-bold text-amber-400 mb-2">🎯 ရွေးချယ်ထားသော ပလက်ဖောင်း: ${platformName}</h3>
-                    <p><strong>ဗီဒီယိုအရင်းအမြစ်:</strong> ${source} (${style})</p>
+                    <p><strong>Editing Style:</strong> ${style}</p>
                 </div>
 
                 <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
@@ -169,13 +152,6 @@
                     <ul class="list-disc list-inside space-y-1 text-slate-300">
                         <li>ဗီဒီယိုဖိုင်ကို <span class="text-amber-400 font-bold">3 စက္ကန့်မှ 4 စက္ကန့်</span> တစ်ကြိမ်စီ Split လုပ်ပါ။</li>
                         <li>အစ/အဆုံးရှိ Watermark များကို ခြေရာလက်ရာမကျန်အောင် ဖြတ်ထုတ်ပါ။</li>
-                    </ul>
-                </div>
-
-                <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
-                    <h3 class="font-bold text-teal-400 mb-2">📌 အဓိက အချက်များ (Key Points)</h3>
-                    <ul class="list-disc list-inside space-y-1 text-slate-200">
-                        ${pointsArray.map(p => `<li>${p}</li>`).join('')}
                     </ul>
                 </div>
             `;
