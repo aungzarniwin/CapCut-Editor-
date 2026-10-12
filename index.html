@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CapCut Copyright-Free Editing Guide</title>
+    <title>CapCut Precision Copyright-Free Guide</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -14,12 +14,12 @@
     <header class="bg-slate-800 border-b border-slate-700 p-4 sticky top-0 z-50">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <i class="fa-solid fa-shield-halved text-emerald-500 text-2xl"></i>
-                <h1 class="text-xl font-bold bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">
-                    CapCut Copyright-Free Studio
+                <i class="fa-solid fa-sliders text-amber-500 text-2xl"></i>
+                <h1 class="text-xl font-bold bg-gradient-to-r from-amber-400 to-emerald-400 bg-clip-text text-transparent">
+                    CapCut Precision Settings Studio
                 </h1>
             </div>
-            <span class="text-xs bg-slate-700 px-3 py-1 rounded-full text-slate-300">v3.0.0</span>
+            <span class="text-xs bg-slate-700 px-3 py-1 rounded-full text-slate-300">v4.0.0</span>
         </div>
     </header>
 
@@ -29,61 +29,54 @@
         <!-- Left Column: Input Form -->
         <section class="lg:col-span-5 bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl h-fit">
             <h2 class="text-lg font-semibold mb-4 text-amber-400 flex items-center gap-2">
-                <i class="fa-solid fa-film"></i> ဗီဒီယို တည်းဖြတ်ရန် ဖြည့်စွက်ပါ
+                <i class="fa-solid fa-gear"></i> ပလက်ဖောင်းနှင့် အချက်အလက် ရွေးချယ်ပါ
             </h2>
 
             <form id="workflowForm" class="space-y-4">
                 <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-1">Video Link / File Name</label>
-                    <input type="text" id="videoSource" placeholder="ဥပမာ - TikTok Link သို့မဟုတ် ဖိုင်နာမည်" 
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Video Source / Name</label>
+                    <input type="text" id="videoSource" placeholder="ဥပမာ - TikTok Video / Movie Clip" 
                         class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" required>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-1">Video Topic / Title</label>
-                    <input type="text" id="videoTopic" placeholder="ဥပမာ - အံ့ဖွယ် သဘာဝဖြစ်ရပ်များ" 
-                        class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" required>
-                </div>
-
-                <div class="grid grid-cols-2 gap-2">
-                    <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-1">Target Platform</label>
-                        <select id="platform" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
-                            <option value="TikTok / Shorts (9:16)">TikTok / Shorts (9:16)</option>
-                            <option value="YouTube Long (16:9)">YouTube Long (16:9)</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-1">Style</label>
-                        <select id="style" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
-                            <option value="Video Recap">Video Recap</option>
-                            <option value="Reaction">Reaction</option>
-                            <option value="Top 5 List">Top 5 List</option>
-                        </select>
-                    </div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Target Platform (ပလက်ဖောင်း)</label>
+                    <select id="platform" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                        <option value="tiktok">TikTok / Reels / Shorts (9:16)</option>
+                        <option value="youtube">YouTube Long Video (16:9)</option>
+                    </select>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-1">Key Points (အဓိက အချက်များ - တစ်ကြောင်းစီ)</label>
-                    <textarea id="keyPoints" rows="3" placeholder="နိဒါန်း၊ အဓိကအချက်များ၊ နိဂုံးချုပ်..." 
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Editing Style</label>
+                    <select id="style" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                        <option value="Video Recap">Video Recap</option>
+                        <option value="Reaction">Reaction</option>
+                        <option value="Top 5 List">Top 5 List</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Key Points (အဓိက အချက်များ)</label>
+                    <textarea id="keyPoints" rows="3" placeholder="နိဒါန်း၊ အဓိကဇာတ်ကြောင်း၊ နိဂုံးချုပ်..." 
                         class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" required></textarea>
                 </div>
 
                 <button type="submit" 
                     class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-shield-heart"></i> Copyright လွတ်မည့် နည်းလမ်းများ ထုတ်ယူမည်
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> ချိန်ညှိရန် Settings များ ထုတ်ယူမည်
                 </button>
             </form>
         </section>
 
-        <!-- Right Column: Generated Workflow Output -->
+        <!-- Right Column: Generated Output -->
         <section class="lg:col-span-7 space-y-6">
             
             <!-- Output Container -->
             <div id="outputContainer" class="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl hidden">
                 <div class="flex flex-wrap justify-between items-center mb-4 pb-3 border-b border-slate-700 gap-2">
                     <h2 class="text-lg font-semibold text-emerald-400 flex items-center gap-2">
-                        <i class="fa-solid fa-list-check"></i> CapCut Copyright-Free Steps
+                        <i class="fa-solid fa-sliders"></i> CapCut Precision Editing Settings
                     </h2>
                     <div class="flex items-center gap-2">
                         <button onclick="copyToClipboard()" class="text-xs bg-slate-700 hover:bg-slate-600 text-slate-200 px-3 py-1.5 rounded-lg flex items-center gap-1 transition">
@@ -102,8 +95,8 @@
 
             <!-- Placeholder State -->
             <div id="placeholderState" class="bg-slate-800/50 border border-dashed border-slate-700 p-12 rounded-xl text-center">
-                <i class="fa-solid fa-shield-halved text-4xl text-slate-600 mb-3 block"></i>
-                <p class="text-slate-400">ဘယ်ဘက်တွင် အချက်အလက်များ ဖြည့်စွက်၍ Copyright လွတ်အောင် တည်းဖြတ်မည့် လမ်းညွှန်ကို ထုတ်ယူပါ။</p>
+                <i class="fa-solid fa-sliders text-4xl text-slate-600 mb-3 block"></i>
+                <p class="text-slate-400">ဘယ်ဘက်တွင် ပလက်ဖောင်းနှင့် အချက်အလက်များ ရွေးချယ်၍ CapCut တိကျသော Settings များကို ထုတ်ယူပါ။</p>
             </div>
 
         </section>
@@ -115,65 +108,68 @@
             e.preventDefault();
 
             const source = document.getElementById('videoSource').value;
-            const topic = document.getElementById('videoTopic').value;
-            const platform = document.getElementById('platform').value;
+            const platformVal = document.getElementById('platform').value;
             const style = document.getElementById('style').value;
             const rawPoints = document.getElementById('keyPoints').value;
             
             const pointsArray = rawPoints.split('\n').filter(p => p.trim() !== '');
 
+            let platformName = platformVal === 'tiktok' ? 'TikTok / Shorts / Reels (9:16)' : 'YouTube Long Video (16:9)';
+
+            // Specific adjustment values based on platform choice
+            let settingsHTML = '';
+            if (platformVal === 'tiktok') {
+                settingsHTML = `
+                    <ul class="list-disc list-inside space-y-1.5 text-slate-300">
+                        <li><strong>Aspect Ratio:</strong> 9:16 (Vertical)</li>
+                        <li><strong>Brightness (အလင်းရောင်):</strong> <span class="text-amber-400 font-bold">+5</span> (Adjust > Adjustments > Brightness)</li>
+                        <li><strong>Contrast (အမှောင်အလင်းကွာခြားချက်):</strong> <span class="text-amber-400 font-bold">+4</span></li>
+                        <li><strong>Saturation (အရောင်စိုစွတ်မှု):</strong> <span class="text-amber-400 font-bold">+6</span></li>
+                        <li><strong>Speed (အမြန်နှုန်း):</strong> <span class="text-amber-400 font-bold">1.08x</span> (TikTok AI ရှောင်ရန် အကောင်းဆုံး)</li>
+                        <li><strong>Zoom / Scale:</strong> <span class="text-amber-400 font-bold">6%</span> (မျက်နှာပြင်ကို အနည်းငယ်ချဲ့ပါ)</li>
+                        <li><strong>Mirror (ပြန်လှည့်ခြင်း):</strong> <span class="text-amber-400 font-bold">ON (ဘယ်/ညာ လှည့်ပါ)</span></li>
+                    </ul>
+                `;
+            } else {
+                settingsHTML = `
+                    <ul class="list-disc list-inside space-y-1.5 text-slate-300">
+                        <li><strong>Aspect Ratio:</strong> 16:9 (Horizontal)</li>
+                        <li><strong>Brightness (အလင်းရောင်):</strong> <span class="text-amber-400 font-bold">+3</span> (Adjust > Adjustments > Brightness)</li>
+                        <li><strong>Contrast (အမှောင်အလင်းကွာခြားချက်):</strong> <span class="text-amber-400 font-bold">+3</span></li>
+                        <li><strong>Saturation (အရောင်စိုစွတ်မှု):</strong> <span class="text-amber-400 font-bold">+5</span></li>
+                        <li><strong>Speed (အမြန်နှုန်း):</strong> <span class="text-amber-400 font-bold">1.03x</span> (YouTube Content ID ရှောင်ရန်)</li>
+                        <li><strong>Zoom / Scale:</strong> <span class="text-amber-400 font-bold">4%</span></li>
+                        <li><strong>Mirror (ပြန်လှည့်ခြင်း):</strong> <span class="text-amber-400 font-bold">Optional (မဖြစ်မနေ မလိုပါ)</span></li>
+                    </ul>
+                `;
+            }
+
             const outputHTML = `
                 <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
-                    <h3 class="font-bold text-amber-400 mb-2">📌 အဆင့် ၁ - အစနှင့်အဆုံး ဖြတ်တောက်ခြင်း (Trim & Cut)</h3>
-                    <p><strong>ဗီဒီယိုအရင်းအမြစ်:</strong> ${source} (${topic})</p>
-                    <p><strong>ပစ်မှတ် ပလက်ဖောင်း:</strong> ${platform} (${style})</p>
-                    <p class="text-xs text-slate-400 mt-1">မူရင်းဗီဒီယိုကို CapCut ထဲထည့်ပြီး အစ/အဆုံးရှိ Watermark များကို ခြေရာလက်ရာမကျန်အောင် ဖြတ်ထုတ်ပါ။</p>
+                    <h3 class="font-bold text-amber-400 mb-2">🎯 ရွေးချယ်ထားသော ပလက်ဖောင်း: ${platformName}</h3>
+                    <p><strong>ဗီဒီယိုအရင်းအမြစ်:</strong> ${source} (${style})</p>
                 </div>
 
                 <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
-                    <h3 class="font-bold text-red-400 mb-2">🔇 အဆင့် ၂ - မူရင်းအသံကို လုံးဝဖယ်ရှားခြင်း (Audio Removal - အရေးကြီးဆုံး)</h3>
+                    <h3 class="font-bold text-emerald-400 mb-2">⚙️ CapCut Adjust & Copyright-Free Settings (အတိအကျ တန်ဖိုးများ)</h3>
+                    ${settingsHTML}
+                </div>
+
+                <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
+                    <h3 class="font-bold text-red-400 mb-2">🔇 အသံပိုင်းဆိုင်ရာ တည်းဖြတ်ရန် (Audio Settings)</h3>
                     <ul class="list-disc list-inside space-y-1 text-slate-300">
-                        <li>ဗီဒီယိုဖိုင်ကို နှိပ်ပြီး <strong>Volume ကို 0</strong> သို့ လျှော့ပါ (Mute လုပ်ပါ)။</li>
-                        <li>မူရင်း နောက်ခံအသံ မပါတော့ဘဲ ကိုယ်ပိုင် Voiceover သို့မဟုတ် မူပိုင်ခွင့်လွတ် သီချင်းကိုသာ အစားထိုးသုံးပါ။</li>
+                        <li>မူရင်း ဗီဒီယိုအသံ Volume = <span class="text-red-400 font-bold">0 (Mute)</span></li>
+                        <li>ကိုယ်ပိုင် Voiceover အသံ Volume = <span class="text-emerald-400 font-bold">100%</span></li>
+                        <li>နောက်ခံသီချင်း (BGM) Volume = <span class="text-amber-400 font-bold">12%</span> သာ ထားပါ။</li>
                     </ul>
                 </div>
 
                 <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
-                    <h3 class="font-bold text-blue-400 mb-2">✂️ အဆင့် သုံး - အပိုင်းငယ်များ ဖြတ်ထုတ်ခြင်းနှင့် နေရာပြောင်းခြင်း (Split & Re-arrange)</h3>
+                    <h3 class="font-bold text-blue-400 mb-2">✂️ ဖြတ်တောက်ခြင်းနှင့် အပိုင်းခွဲခြင်း (Split & Cuts)</h3>
                     <ul class="list-disc list-inside space-y-1 text-slate-300">
-                        <li>ဗီဒီယိုကို <strong>3 စက္ကန့်မှ 5 စက္ကန့်</strong> တစ်ကြိမ်စီ Split ဖြင့် အပိုင်းငယ်များ ခွဲပါ။</li>
-                        <li>အချို့ အပိုင်းများကို နေရာပြောင်းလဲခြင်း (သို့) မလိုအပ်တာများ ဖယ်ရှားခြင်း လုပ်ပါ။</li>
+                        <li>ဗီဒီယိုဖိုင်ကို <span class="text-amber-400 font-bold">3 စက္ကန့်မှ 4 စက္ကန့်</span> တစ်ကြိမ်စီ Split လုပ်ပါ။</li>
+                        <li>အစ/အဆုံးရှိ Watermark များကို ခြေရာလက်ရာမကျန်အောင် ဖြတ်ထုတ်ပါ။</li>
                     </ul>
-                </div>
-
-                <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
-                    <h3 class="font-bold text-amber-300 mb-2">⚡ အဆင့် လေး - အမြန်နှုန်း အနည်းငယ်ပြောင်းလဲခြင်း (Speed Adjustment)</h3>
-                    <ul class="list-disc list-inside space-y-1 text-slate-300">
-                        <li>ဗီဒီယို Speed ကို <strong>1.05x သို့မဟုတ် 1.1x</strong> သို့ အနည်းငယ် တိုးပေးပါ။</li>
-                        <li>Algorithm ရဲ့ မူရင်းဖိုင်နဲ့ တိုက်ဆိုင်စစ်ဆေးမှုနှုန်းကို ရှောင်ရှားနိုင်စေပါတယ်။</li>
-                    </ul>
-                </div>
-
-                <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
-                    <h3 class="font-bold text-purple-400 mb-2">🎨 အဆင့် ငါး - ရုပ်ပိုင်းဆိုင်ရာ ပြောင်းလဲမှုများ (Visual Alterations)</h3>
-                    <ul class="list-disc list-inside space-y-1 text-slate-300">
-                        <li><strong>Zoom/Crop:</strong> ဗီဒီယိုမျက်နှာပြင်ကို 5% ခန့် Zoom ဆွဲပါ။</li>
-                        <li><strong>Mirror:</strong> Edit > Mirror ဖြင့် ဘယ်/ညာ ပြောင်းပြန်လှည့်ပါ။</li>
-                        <li><strong>Adjustments:</strong> Contrast (+3) နှင့် Saturation (+5) ကို အနည်းငယ် ချိန်ညှိပါ။</li>
-                    </ul>
-                </div>
-
-                <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
-                    <h3 class="font-bold text-emerald-400 mb-2">📝 အဆင့် ခြောက် - စာတန်းထိုးခြင်းနှင့် အလှဆင်ခြင်း (Captions & Transitions)</h3>
-                    <ul class="list-disc list-inside space-y-1 text-slate-300">
-                        <li>Text > <strong>Auto Captions</strong> သုံး၍ စာတန်းများ ထည့်ပါ။</li>
-                        <li>ဖြတ်ထားသော အပိုင်းများကြားတွင် <strong>Transitions</strong> လေးများ ထည့်ပါ။</li>
-                    </ul>
-                </div>
-
-                <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
-                    <h3 class="font-bold text-cyan-400 mb-2">🚀 အဆင့် ခုနစ် - အရည်အသွေးမြင့် ထုတ်ယူခြင်း (Export)</h3>
-                    <p><strong>Resolution:</strong> 1080p | <strong>Frame Rate:</strong> 60fps ဖြင့် သိမ်းဆည်းကာ TikTok & YouTube တွင် တင်င်ပါ။</p>
                 </div>
 
                 <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
@@ -198,8 +194,7 @@
 
         function downloadTextFile() {
             const container = document.getElementById('workflowOutput');
-            const topicInput = document.getElementById('videoTopic').value || 'CapCut_Copyright_Free';
-            const fileName = topicInput.replace(/[^a-zA-Z0-9သူမြန်မာ]/g, '_') + '_guide.txt';
+            const fileName = 'CapCut_Precision_Settings.txt';
 
             const blob = new Blob([container.innerText], { type: 'text/plain;charset=utf-8' });
             const url = URL.createObjectURL(blob);
