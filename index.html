@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CapCut Precision Copyright-Free Guide</title>
+    <title>CapCut Pro Anti-Copyright Studio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -14,12 +14,12 @@
     <header class="bg-slate-800 border-b border-slate-700 p-4 sticky top-0 z-50">
         <div class="max-w-4xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <i class="fa-solid fa-sliders text-amber-500 text-2xl"></i>
+                <i class="fa-solid fa-shield-halved text-amber-500 text-2xl"></i>
                 <h1 class="text-xl font-bold bg-gradient-to-r from-amber-400 to-emerald-400 bg-clip-text text-transparent">
-                    CapCut Precision Settings Studio
+                    CapCut Pro Anti-Copyright Studio
                 </h1>
             </div>
-            <span class="text-xs bg-slate-700 px-3 py-1 rounded-full text-slate-300">v5.0.0</span>
+            <span class="text-xs bg-slate-700 px-3 py-1 rounded-full text-slate-300">v7.0.0</span>
         </div>
     </header>
 
@@ -52,7 +52,7 @@
 
                 <button type="submit" 
                     class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i> ချိန်ညှိရန် Settings များ ထုတ်ယူမည်
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Pro Anti-Copyright Settings ထုတ်ယူမည်
                 </button>
             </form>
         </section>
@@ -64,7 +64,7 @@
             <div id="outputContainer" class="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl hidden">
                 <div class="flex flex-wrap justify-between items-center mb-4 pb-3 border-b border-slate-700 gap-2">
                     <h2 class="text-lg font-semibold text-emerald-400 flex items-center gap-2">
-                        <i class="fa-solid fa-sliders"></i> CapCut Precision Settings
+                        <i class="fa-solid fa-sliders"></i> CapCut Pro Anti-Copyright Settings
                     </h2>
                     <div class="flex items-center gap-2">
                         <button onclick="copyToClipboard()" class="text-xs bg-slate-700 hover:bg-slate-600 text-slate-200 px-3 py-1.5 rounded-lg flex items-center gap-1 transition">
@@ -83,8 +83,8 @@
 
             <!-- Placeholder State -->
             <div id="placeholderState" class="bg-slate-800/50 border border-dashed border-slate-700 p-12 rounded-xl text-center">
-                <i class="fa-solid fa-sliders text-4xl text-slate-600 mb-3 block"></i>
-                <p class="text-slate-400">ဘယ်ဘက်တွင် ပလက်ဖောင်း ရွေးချယ်၍ CapCut တိကျသော Settings များကို ထုတ်ယူပါ။</p>
+                <i class="fa-solid fa-shield-halved text-4xl text-slate-600 mb-3 block"></i>
+                <p class="text-slate-400">ဘယ်ဘက်တွင် ပလက်ဖောင်း ရွေးချယ်၍ CapCut Pro Anti-Copyright Settings များကို ထုတ်ယူပါ။</p>
             </div>
 
         </section>
@@ -100,58 +100,61 @@
             
             let platformName = platformVal === 'tiktok' ? 'TikTok / Shorts / Reels (9:16)' : 'YouTube Long Video (16:9)';
 
-            let settingsHTML = '';
+            let precisionHTML = '';
             if (platformVal === 'tiktok') {
-                settingsHTML = `
-                    <ul class="list-disc list-inside space-y-1.5 text-slate-300">
+                precisionHTML = `
+                    <ul class="list-disc list-inside space-y-2 text-slate-300">
                         <li><strong>Aspect Ratio:</strong> 9:16 (Vertical)</li>
-                        <li><strong>Brightness (အလင်းရောင်):</strong> <span class="text-amber-400 font-bold">+5</span> (Adjust > Adjustments > Brightness)</li>
-                        <li><strong>Contrast (အမှောင်အလင်းကွာခြားချက်):</strong> <span class="text-amber-400 font-bold">+4</span></li>
-                        <li><strong>Saturation (အရောင်စိုစွတ်မှု):</strong> <span class="text-amber-400 font-bold">+6</span></li>
-                        <li><strong>Speed (အမြန်နှုန်း):</strong> <span class="text-amber-400 font-bold">1.08x</span> (TikTok AI ရှောင်ရန် အကောင်းဆုံး)</li>
-                        <li><strong>Zoom / Scale:</strong> <span class="text-amber-400 font-bold">6%</span> (မျက်နှာပြင်ကို အနည်းငယ်ချဲ့ပါ)</li>
-                        <li><strong>Mirror (ပြန်လှည့်ခြင်း):</strong> <span class="text-amber-400 font-bold">ON (ဘယ်/ညာ လှည့်ပါ)</span></li>
+                        <li><strong>1. Mirror & Flip (အဓိကအချက်):</strong> ဗီဒီယိုဖိုင်ကို Edit > <span class="text-amber-400 font-bold">Mirror</span> ဖြင့် ဘယ်/ညာ ပြောင်းပြန်လှည့်ပါ။ (Algorithm ရှောင်ရန် အထိရောက်ဆုံး)</li>
+                        <li><strong>2. Brightness & Exposure:</strong> Brightness <span class="text-amber-400 font-bold">+6</span> | Exposure <span class="text-amber-400 font-bold">+3</span></li>
+                        <li><strong>3. Contrast & Highlights:</strong> Contrast <span class="text-amber-400 font-bold">+5</span> | Highlights <span class="text-amber-400 font-bold">-4</span></li>
+                        <li><strong>4. Saturation & Vibrance:</strong> Saturation <span class="text-amber-400 font-bold">+7</span> | Vibrance <span class="text-amber-400 font-bold">+5</span></li>
+                        <li><strong>5. Sharpen (ဓါတ်ပုံထက်ရှရှဖြစ်စေရန်):</strong> Sharpen <span class="text-amber-400 font-bold">+15</span></li>
+                        <li><strong>6. Vignette & Grain:</strong> Vignette <span class="text-amber-400 font-bold">+10</span> | Film Grain <span class="text-amber-400 font-bold">+5</span> (Pixel matching လုံးဝဖျောက်ရန်)</li>
+                        <li><strong>7. Speed & Scale:</strong> Speed <span class="text-amber-400 font-bold">1.08x</span> | Zoom <span class="text-amber-400 font-bold">6% to 8%</span></li>
                     </ul>
                 `;
             } else {
-                settingsHTML = `
-                    <ul class="list-disc list-inside space-y-1.5 text-slate-300">
+                precisionHTML = `
+                    <ul class="list-disc list-inside space-y-2 text-slate-300">
                         <li><strong>Aspect Ratio:</strong> 16:9 (Horizontal)</li>
-                        <li><strong>Brightness (အလင်းရောင်):</strong> <span class="text-amber-400 font-bold">+3</span> (Adjust > Adjustments > Brightness)</li>
-                        <li><strong>Contrast (အမှောင်အလင်းကွာခြားချက်):</strong> <span class="text-amber-400 font-bold">+3</span></li>
-                        <li><strong>Saturation (အရောင်စိုစွတ်မှု):</strong> <span class="text-amber-400 font-bold">+5</span></li>
-                        <li><strong>Speed (အမြန်နှုန်း):</strong> <span class="text-amber-400 font-bold">1.03x</span> (YouTube Content ID ရှောင်ရန်)</li>
-                        <li><strong>Zoom / Scale:</strong> <span class="text-amber-400 font-bold">4%</span></li>
-                        <li><strong>Mirror (ပြန်လှည့်ခြင်း):</strong> <span class="text-amber-400 font-bold">Optional (မဖြစ်မနေ မလိုပါ)</span></li>
+                        <li><strong>1. Mirror & Flip:</strong> Edit > <span class="text-amber-400 font-bold">Mirror</span> (လိုအပ်ပါက အလှည့်အပြောင်းလုပ်ပါ)</li>
+                        <li><strong>2. Brightness & Exposure:</strong> Brightness <span class="text-amber-400 font-bold">+4</span> | Exposure <span class="text-amber-400 font-bold">+2</span></li>
+                        <li><strong>3. Contrast & Highlights:</strong> Contrast <span class="text-amber-400 font-bold">+4</span> | Highlights <span class="text-amber-400 font-bold">-3</span></li>
+                        <li><strong>4. Saturation & Vibrance:</strong> Saturation <span class="text-amber-400 font-bold">+5</span> | Vibrance <span class="text-amber-400 font-bold">+4</span></li>
+                        <li><strong>5. Sharpen:</strong> Sharpen <span class="text-amber-400 font-bold">+12</span></li>
+                        <li><strong>6. Vignette & Grain:</strong> Vignette <span class="text-amber-400 font-bold">+8</span> | Film Grain <span class="text-amber-400 font-bold">+4</span></li>
+                        <li><strong>7. Speed & Scale:</strong> Speed <span class="text-amber-400 font-bold">1.03x</span> | Zoom <span class="text-amber-400 font-bold">4% to 5%</span></li>
                     </ul>
                 `;
             }
 
             const outputHTML = `
                 <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
-                    <h3 class="font-bold text-amber-400 mb-2">🎯 ရွေးချယ်ထားသော ပလက်ဖောင်း: ${platformName}</h3>
-                    <p><strong>Editing Style:</strong> ${style}</p>
+                    <h3 class="font-bold text-amber-400 mb-2">🎯 ပလက်ဖောင်း: ${platformName} (${style})</h3>
                 </div>
 
                 <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
-                    <h3 class="font-bold text-emerald-400 mb-2">⚙️ CapCut Adjust & Copyright-Free Settings (အတိအကျ တန်ဖိုးများ)</h3>
-                    ${settingsHTML}
+                    <h3 class="font-bold text-emerald-400 mb-2">⚙️ Pro Mirror, Color & Visual Anti-Copyright Settings</h3>
+                    ${precisionHTML}
                 </div>
 
                 <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
-                    <h3 class="font-bold text-red-400 mb-2">🔇 အသံပိုင်းဆိုင်ရာ တည်းဖြတ်ရန် (Audio Settings)</h3>
+                    <h3 class="font-bold text-blue-400 mb-2">🎵 Advanced Audio & Voice Anti-Match Settings</h3>
                     <ul class="list-disc list-inside space-y-1 text-slate-300">
-                        <li>မူရင်း ဗီဒီယိုအသံ Volume = <span class="text-red-400 font-bold">0 (Mute)</span></li>
-                        <li>ကိုယ်ပိုင် Voiceover အသံ Volume = <span class="text-emerald-400 font-bold">100%</span></li>
-                        <li>နောက်ခံသီချင်း (BGM) Volume = <span class="text-amber-400 font-bold">12%</span> သာ ထားပါ။</li>
+                        <li>မူရင်း ဗီဒီယိုအသံ Volume = <span class="text-red-400 font-bold">0 (Mute / Detach and Delete)</span></li>
+                        <li>Audio > <span class="text-amber-400 font-bold">Reduce Noise (ဆူညံသံဖယ်ရှားခြင်း)</span> ကို အမြဲ On ပါ။</li>
+                        <li>ကိုယ်ပိုင် Voiceover အသံ Volume = <span class="text-emerald-400 font-bold">100%</span> (Voice Effects ထဲမှ Lo-Fi သို့မဟုတ် Megaphone ကဲ့သို့ အသံအနည်းငယ်ပြောင်းလဲခြင်းဖြင့် AI Voice Match ရှောင်နိုင်သည်)။</li>
+                        <li>နောက်ခံသီချင်း (BGM) Volume = <span class="text-amber-400 font-bold">10% - 12%</span> (Auto Ducking ဖွင့်ရန်)</li>
                     </ul>
                 </div>
 
                 <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
-                    <h3 class="font-bold text-blue-400 mb-2">✂️ ဖြတ်တောက်ခြင်းနှင့် အပိုင်းခွဲခြင်း (Split & Cuts)</h3>
+                    <h3 class="font-bold text-purple-400 mb-2">✂️ Advanced Splitting & Masking Tricks</h3>
                     <ul class="list-disc list-inside space-y-1 text-slate-300">
-                        <li>ဗီဒီယိုဖိုင်ကို <span class="text-amber-400 font-bold">3 စက္ကန့်မှ 4 စက္ကန့်</span> တစ်ကြိမ်စီ Split လုပ်ပါ။</li>
-                        <li>အစ/အဆုံးရှိ Watermark များကို ခြေရာလက်ရာမကျန်အောင် ဖြတ်ထုတ်ပါ။</li>
+                        <li>ဗီဒီယိုဖိုင်ကို <span class="text-amber-400 font-bold">2 စက္ကန့်မှ 3.5 စက္ကန့်</span> တစ်ကြိမ်စီ Split လုပ်ပါ။</li>
+                        <li>အပိုင်းအစတိုင်းတွင် 0.3s ဖြင့် Dissolve သို့မဟုတ် Camera Blur <span class="text-amber-400 font-bold">Transitions</span> ထည့်ပါ။</li>
+                        <li>လိုအပ်ပါက အပေါ်မှ Overlay ပုံစံ Sticker သို့မဟုတ် Text Watermark ကို Blur ခံကာ ဖုံးအုပ်ပါ။</li>
                     </ul>
                 </div>
             `;
@@ -170,7 +173,7 @@
 
         function downloadTextFile() {
             const container = document.getElementById('workflowOutput');
-            const fileName = 'CapCut_Precision_Settings.txt';
+            const fileName = 'CapCut_Pro_Anti_Copyright_Settings.txt';
 
             const blob = new Blob([container.innerText], { type: 'text/plain;charset=utf-8' });
             const url = URL.createObjectURL(blob);
