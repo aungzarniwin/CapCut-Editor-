@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapCut Video Re-edit & AI Script Assistant</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen font-sans antialiased pb-12">
+
+    <!-- Header / Navbar -->
+    <header class="bg-slate-800 border-b border-slate-700 p-4 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-scissors text-red-500 text-2xl"></i>
+                <h1 class="text-xl font-bold bg-gradient-to-r from-red-400 to-amber-400 bg-clip-text text-transparent">
+                    Re-Creator Studio (CapCut & AI Prompt Hub)
+                </h1>
+            </div>
+            <span class="text-xs bg-slate-700 px-3 py-1 rounded-full text-slate-300">v1.2.0</span>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 mt-4">
+
+        <!-- Left Column: Input Form -->
+        <section class="lg:col-span-5 bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl h-fit">
+            <h2 class="text-lg font-semibold mb-4 text-amber-400 flex items-center gap-2">
+                <i class="fa-solid fa-pen-to-square"></i> ဗီဒီယို အချက်အလက်များ ထည့်ပါ
+            </h2>
+
+            <form id="scriptForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Video Topic / Title (English or Burmese)</label>
+                    <input type="text" id="videoTopic" placeholder="ဥပမာ - Mystery abandoned spaceship in deep space" 
+                        class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Target Platform</label>
+                    <select id="platform" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                        <option value="TikTok (9:16)">TikTok / Reel (9:16)</option>
+                        <option value="YouTube Shorts (9:16)">YouTube Shorts (9:16)</option>
+                        <option value="YouTube Long (16:9)">YouTube Long Video (16:9)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Re-editing Style</label>
+                    <select id="style" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                        <option value="Movie / Video Recap">Movie / Video Recap (အကျဉ်းချုပ် ပြန်ပြောပြမည်)</option>
+                        <option value="Reaction & Commentary">Reaction & Commentary (ဝေဖန်သုံးသပ်မည်)</option>
+                        <option value="Educational Top 5">Educational / Top 5 List</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Video Key Points / Summary</label>
+                    <textarea id="keyPoints" rows="4" placeholder="ဗီဒီယိုထဲမှာ ပါတဲ့ အဓိက အကြောင်းအရာ အတိုချုပ် ရေးပါ..." 
+                        class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" required></textarea>
+                </div>
+
+                <button type="submit" 
+                    class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Script & Midjourney Prompts ထုတ်ယူမည်
+                </button>
+            </form>
+        </section>
+
+        <!-- Right Column: Generated Workflow Output -->
+        <section class="lg:col-span-7 space-y-6">
+            
+            <!-- Output Container -->
+            <div id="outputContainer" class="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl hidden">
+                <div class="flex flex-wrap justify-between items-center mb-4 pb-3 border-b border-slate-700 gap-2">
+                    <h2 class="text-lg font-semibold text-emerald-400 flex items-center gap-2">
+                        <i class="fa-solid fa-file-code"></i> Generated Plan & AI Prompts
+                    </h2>
+                    <div class="flex items-center gap-2">
+                        <button onclick="copyToClipboard()" class="text-xs bg-slate-700 hover:bg-slate-600 text-slate-200 px-3 py-1.5 rounded-lg flex items-center gap-1 transition">
+                            <i class="fa-solid fa-copy"></i> Copy
+                        </button>
+                        <button onclick="downloadTextFile()" class="text-xs bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg flex items-center gap-1 transition font-medium">
+                            <i class="fa-solid fa-download"></i> Download .txt
+                        </button>
+                    </div>
+                </div>
+
+                <div id="scriptOutput" class="space-y-4 text-sm text-slate-300">
+                    <!-- Dynamic Content Generated Here -->
+                </div>
+            </div>
+
+            <!-- Placeholder State -->
+            <div id="placeholderState" class="bg-slate-800/50 border border-dashed border-slate-700 p-12 rounded-xl text-center">
+                <i class="fa-solid fa-film text-4xl text-slate-600 mb-3 block"></i>
+                <p class="text-slate-400">ဘယ်ဘက်တွင် အချက်အလက်များ ဖြည့်စွက်၍ Script, Editing Plan နှင့် Midjourney Prompts များကို ထုတ်ယူပါ။</p>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        document.getElementById('scriptForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const topic = document.getElementById('videoTopic').value;
+            const platform = document.getElementById('platform').value;
+            const style = document.getElementById('style').value;
+            const points = document.getElementById('keyPoints').value;
+
+            // Generate AI Image / Midjourney Prompts based on user topic
+            const prompt1 = `Cinematic high-CTR thumbnail for ${topic}, dramatic lighting, hyper-realistic, 8k resolution, photorealistic, trending on artstation --ar 16:9 --v 6.0`;
+            const prompt2 = `Intense emotional moment, mysterious atmosphere, dynamic angle, highly detailed cinematic still, unreal engine 5 render --ar 9:16 --v 6.0`;
+            const prompt3 = `Close-up shot showing astonishing details, striking color grading, neon highlights, cinematic film grain --ar 9:16 --v 6.0`;
+
+            // Generate Workflow Output
+            const outputHTML = `
+                <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
+                    <h3 class="font-bold text-amber-400 mb-2">📌 1. Platform & Technical Setup</h3>
+                    <ul class="list-disc list-inside space-y-1 text-slate-300">
+                        <li><strong>Platform:</strong> ${platform}</li>
+                        <li><strong>Content Style:</strong> ${style}</li>
+                        <li><strong>Aspect Ratio:</strong> ${platform.includes('9:16') ? '9:16 (Vertical)' : '16:9 (Horizontal)'}</li>
+                        <li><strong>Speed Adjustment:</strong> 1.05x to 1.1x (CapCut Speed Settings)</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
+                    <h3 class="font-bold text-emerald-400 mb-2">🎙️ 2. Voiceover & Script Draft (Burmese)</h3>
+                    <p class="mb-2 italic text-slate-400">[Opening Hook - 0 to 3 Seconds]:</p>
+                    <p class="bg-slate-950 p-2.5 rounded border border-slate-800 text-slate-200 font-medium mb-3">
+                        "မင်းတို့ရော ${topic} အကြောင်း တကယ်သိကြရဲ့လား? ဒီဗီဒီယိုမှာ မထင်မှတ်ထားတာတွေ တွေ့ရမယ်!"
+                    </p>
+                    <p class="mb-2 italic text-slate-400">[Main Voiceover Body]:</p>
+                    <p class="bg-slate-950 p-2.5 rounded border border-slate-800 text-slate-200">
+                        ${points.split('\n').join('<br>')}
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
+                    <h3 class="font-bold text-indigo-400 mb-2">🎨 3. Midjourney / AI Image Prompts (For Thumbnails & Visual Overlays)</h3>
+                    <p class="text-xs text-slate-400 mb-2">ဒီ Prompts တွေကို Midjourney သို့မဟုတ် AI Image Generators တွေမှာ ထည့်ပြီး Thumbnail နဲ့ Video B-Roll တွေအတွက် ပုံထုတ်သုံးနိုင်ပါတယ် -</p>
+                    
+                    <div class="space-y-3">
+                        <div>
+                            <span class="text-xs font-semibold text-amber-300">Thumbnail Prompt (16:9):</span>
+                            <div class="bg-slate-950 p-2 rounded border border-slate-800 text-xs font-mono text-cyan-300 select-all">${prompt1}</div>
+                        </div>
+                        <div>
+                            <span class="text-xs font-semibold text-amber-300">Vertical Scene Prompt 1 (9:16):</span>
+                            <div class="bg-slate-950 p-2 rounded border border-slate-800 text-xs font-mono text-cyan-300 select-all">${prompt2}</div>
+                        </div>
+                        <div>
+                            <span class="text-xs font-semibold text-amber-300">Vertical Scene Prompt 2 (9:16):</span>
+                            <div class="bg-slate-950 p-2 rounded border border-slate-800 text-xs font-mono text-cyan-300 select-all">${prompt3}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 p-4 rounded-lg border border-slate-700">
+                    <h3 class="font-bold text-cyan-400 mb-2">✂️ 4. CapCut Copyright Safety Steps</h3>
+                    <ol class="list-decimal list-inside space-y-1 text-slate-300">
+                        <li><strong>Cut & Split:</strong> Clip တိုင်းကို 3-5 စက္ကန့်စီ ဖြတ်တောက်ပါ။</li>
+                        <li><strong>Audio Mute:</strong> မူရင်း ဗီဒီယို အသံကို ပိတ်ပြီး ယူထားသော Voiceover အသံ ထည့်ပါ။</li>
+                        <li><strong>Zoom/Crop:</strong> CapCut Canvas တွင် ဗီဒီယိုကို 5% Zoom ဆွဲပါ။</li>
+                        <li><strong>Color Filter:</strong> Contrast +3, Saturation +5 သို့ ပြောင်းပါ။</li>
+                    </ol>
+                </div>
+            `;
+
+            document.getElementById('scriptOutput').innerHTML = outputHTML;
+            document.getElementById('placeholderState').classList.add('hidden');
+            document.getElementById('outputContainer').classList.remove('hidden');
+        });
+
+        function copyToClipboard() {
+            const container = document.getElementById('scriptOutput');
+            const textToCopy = container.innerText;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert('Copied to Clipboard!');
+            });
+        }
+
+        function downloadTextFile() {
+            const container = document.getElementById('scriptOutput');
+            const textToDownload = container.innerText;
+            const topicInput = document.getElementById('videoTopic').value || 'CapCut_Script';
+            const fileName = topicInput.replace(/[^a-zA-Z0-9သူမြန်မာ]/g, '_') + '_plan_prompts.txt';
+
+            const blob = new Blob([textToDownload], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
